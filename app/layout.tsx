@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
+import { Atkinson_Hyperlegible } from 'next/font/google';
 import './globals.css';
+
+const sans = Atkinson_Hyperlegible({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Guess Who? — Indirect Questions',
@@ -7,5 +14,9 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+  return (
+    <html lang="en">
+      <body className={sans.className}>{children}</body>
+    </html>
+  );
 }
